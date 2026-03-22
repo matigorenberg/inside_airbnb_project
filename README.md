@@ -1,1 +1,97 @@
-# inside_airbnb_project
+# Identificación de Listings de Alta Demanda en Airbnb CABA mediante Modelos de Clasificación – Proyecto Final Integrador
+
+Este repositorio contiene el código y los recursos para el Proyecto Final Integrador del Diplomado en Ciencia de Datos y Análisis Avanzado. El objetivo es clasificar el potencial de éxito de los alojamientos de Airbnb en la Ciudad Autónoma de Buenos Aires (CABA) utilizando técnicas de Machine Learning, siguiendo la metodología CRISP-DM.
+
+## Resultados Clave
+- **Modelo Seleccionado:** LightGBM con optimización de hiperparámetros.
+- **Métrica Principal (Recall):** 86% en la identificación de casos de éxito.
+- **Hallazgo Principal:** La gestión operativa (tasa de respuesta y aceptación) tiene un impacto predictivo mayor que la ubicación geográfica en el mercado de CABA.
+
+## Estructura del Proyecto
+```bash
+├── data/                           # Datos crudos (listings.csv incluido para reproducibilidad)
+├── inside_airbnb_ml_project.ipynb  # Notebook principal con el ciclo de vida del dato
+├── README.md                       # Documentación del repositorio
+└── .gitignore                      # Archivos excluidos (entornos virtuales y temporales)
+Contenido
+data/: Carpeta destinada a alojar el dataset crudo listings.csv (ver aclaraciones e instrucciones más abajo).
+
+inside_airbnb_ml_project.ipynb: Notebook Jupyter con todo el análisis: carga de datos, limpieza general, ingeniería de variables, modelado (comparativa de modelos lineales y ensamble, incluyendo boosting), evaluación de métricas y explicación de características mediante valores SHAP.
+
+README.md: Este archivo describe el proyecto, los requisitos y cómo ejecutar el notebook.
+
+Requisitos
+Python 3.11 o superior.
+
+Librerías de Python: pandas, numpy, scikit-learn, matplotlib, seaborn, xgboost, lightgbm, shap, folium.
+
+Ejecución
+Este proyecto puede ejecutarse de dos maneras:
+
+Opción A: Google Colab (Recomendado)
+Suba el archivo inside_airbnb_ml_project.ipynb a su Google Drive.
+
+Cargue el archivo listings.csv en la sección de "Archivos" (ícono de carpeta a la izquierda) dentro de una carpeta llamada data/, o ajuste la ruta de carga en el notebook.
+
+Al abrir el notebook, las celdas iniciales instalarán automáticamente las librerías faltantes (como shap o lightgbm) si no estuvieran presentes.
+
+Opción B: Local (Jupyter Notebook)
+Clona o descarga este repositorio.
+
+Crea un entorno virtual (opcional pero recomendado):
+
+Bash
+python -m venv env
+source env/bin/activate
+Instala las dependencias necesarias:
+
+Bash
+pip install pandas numpy scikit-learn matplotlib seaborn xgboost lightgbm shap folium
+Ejecuta jupyter notebook y abra el archivo .ipynb.
+
+Datos y Reproducibilidad
+El dataset utilizado para este proyecto corresponde a la extracción de Inside Airbnb para la Ciudad Autónoma de Buenos Aires con fecha de corte al 30 de enero de 2025.
+
+Nota Crítica sobre los Datos: Debido a que Inside Airbnb actualiza periódicamente su estructura de archivos (versiones más recientes pueden presentar cambios significativos en nombres de columnas y tipos de datos), se incluye en este repositorio el archivo listings.csv original utilizado para el entrenamiento y validación del modelo. Esto garantiza la total reproducibilidad de los resultados presentados.
+
+¿Cómo proceder con datos nuevos? Si desea utilizar una versión más reciente de los datos:
+
+Accede a http://insideairbnb.com/get-the-data/.
+
+Busca la ciudad de Buenos Aires y descarga el archivo listings.csv.gz (Detailed Listings data).
+
+Descomprime el archivo descargado para obtener la carpeta que contiene el archivo listings.csv.
+
+Mueve el archivo a la carpeta data/ dentro de tu repositorio local.
+
+Importante: Realice un mapeo de columnas y ajuste las funciones de limpieza (como initial_data_cleaning) y feature engineering en el notebook para atender los cambios en la estructura de la fuente.
+
+Ejecución del Notebook
+Abre el notebook inside_airbnb_ml_project.ipynb con Jupyter Notebook o JupyterLab:
+
+Bash
+jupyter notebook inside_airbnb_ml_project.ipynb
+Ejecuta las celdas en orden. El notebook realiza los siguientes pasos:
+
+Importación saneada de librerías estandarizadas y configuración del entorno visual.
+
+Carga del dataset.
+
+Limpieza general inicial e ingeniería de variables.
+
+Análisis exploratorio de datos (EDA).
+
+Preprocesamiento de datos.
+
+Entrenamiento y validación cruzada estratificada (Regresión Logística, Random Forest, LightGBM, XGBoost).
+
+Optimización de hiperparámetros mediante GridSearchCV, priorizando la maximización del Recall.
+
+Análisis de interpretabilidad profundo sobre el modelo ganador (LightGBM) con valores SHAP.
+
+Citaciones
+Fuente de Datos: Extraídos de Inside Airbnb.
+
+Algoritmo de Predicción Seleccionado: LightGBM Documentation.
+
+Framework de Interpretabilidad: SHAP (SHapley Additive exPlanations).
