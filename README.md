@@ -46,7 +46,7 @@ source env/bin/activate
 pip install pandas numpy scikit-learn matplotlib seaborn xgboost lightgbm shap folium
 ```
 4. Ejecuta Jupyter Notebook o JupyterLab y abra el archivo `.ipynb`.
-5. Asegúrese de que la ruta en la que se encuentra el archivo `listings.zip` sea consistente con la carga de datos tal cual estipulada para la sección correspondiente del código.
+5. Asegúrese de que la ruta en la que se encuentra el archivo `listings.zip` sea consistente con la carga de datos tal cual estipulada para la sección correspondiente del código (dentro de una carpeta llamada `data` preferentemente de acuerdo con buenas prácticas).
 6. Ejecuta las celdas en orden.
   
 El notebook realiza los siguientes pasos:
