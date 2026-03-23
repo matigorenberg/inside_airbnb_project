@@ -9,7 +9,8 @@ Este repositorio contiene el código y los recursos para el Proyecto Final Integ
 
 ## Estructura del Proyecto
 ```bash
-├── data/                           # Datos crudos (listings.zip incluido para reproducibilidad)
+├── data/                           # Carpeta de Datos
+│   └── listings.zip                # Datos crudos (listings.zip incluido para reproducibilidad)
 ├── inside_airbnb_ml_project.ipynb  # Notebook principal con el ciclo de vida del dato
 ├── README.md                       # Documentación del repositorio
 └── .gitignore                      # Archivos excluidos (entornos virtuales y temporales)
