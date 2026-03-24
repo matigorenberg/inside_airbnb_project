@@ -3,8 +3,10 @@
 Este repositorio contiene el código y los recursos para el Proyecto Final Integrador del Diplomado en Ciencia de Datos y Análisis Avanzado. El objetivo es clasificar el potencial de éxito de los alojamientos de Airbnb en la Ciudad Autónoma de Buenos Aires (CABA) utilizando técnicas de Machine Learning, siguiendo la metodología [CRISP-DM](https://es.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining).
 
 ## Resultados Clave
-- **Modelo Seleccionado:** LightGBM con optimización de hiperparámetros.
-- **Métrica Principal (Recall):** 86% en la identificación de casos de éxito.
+- **Modelo Seleccionado:** LightGBM con optimización de hiperparámetros y normalización del conjunto de entrenamiento.
+- **Capacidad Discriminativa (ROC-AUC):** 0.90, lo que indica una excelente capacidad del modelo para diferenciar entre listings de alta y baja demanda.
+- **Eficiencia de Captura (Recall):** 86%, logrando identificar la mayoría de las oportunidades exitosas del mercado.
+- **Precisión vs. Azar:** 52%, logrando un Lift de 2.3x sobre la probabilidad base del mercado.
 - **Hallazgo Principal:** La gestión operativa (tasa de respuesta y aceptación) tiene un impacto predictivo mayor que la ubicación geográfica en el mercado de CABA.
 
 ## Estructura del Proyecto
@@ -70,7 +72,8 @@ El notebook el archivo `.zip` sin necesidad de descomprimirlo, puesto que `panda
 - Accede a http://insideairbnb.com/get-the-data/.
 - Busca la ciudad de Buenos Aires y descarga el archivo `listings.csv.gz` (Detailed Listings data).
 - Descomprime, de ser necesario, el archivo descargado para obtener la carpeta que contiene el archivo `listings.csv`.
-- Mueve el archivo a la carpeta `data/` dentro de tu repositorio local.
+- Sigue las instrucciones para la carga del archivo dentro de la sección "Ejecución del Notebook" dentro del presente README.
+  
 Importante: Realice un mapeo de columnas y ajuste las funciones de limpieza (como initial_data_cleaning) y feature engineering en el notebook para atender los cambios en la estructura de la fuente.
 Recuerde ajustar la ruta del archivo.
 
