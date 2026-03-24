@@ -7,7 +7,7 @@ Este repositorio contiene el código y los recursos para el Proyecto Final Integ
 - **Capacidad Discriminativa (ROC-AUC):** 0.90, lo que indica una excelente capacidad del modelo para diferenciar entre listings de alta y baja demanda.
 - **Eficiencia de Captura (Recall):** 86%, logrando identificar la mayoría de las oportunidades exitosas del mercado.
 - **Precisión vs. Azar:** 52%, logrando un Lift de 2.3x sobre la probabilidad base del mercado.
-- **Hallazgo Principal:** La gestión operativa y calidad percibida tienen un impacto predictivo mayor que la ubicación geográfica y la infraestruture del inmueble en el mercado de CABA.
+- **Hallazgo Principal:** La gestión operativa y la calidad percibida tienen un impacto predictivo mayor que la ubicación geográfica y la infraestruture del inmueble en el mercado de CABA.
 
 ## Estructura del Proyecto
 ```bash
