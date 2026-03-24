@@ -74,7 +74,7 @@ El notebook el archivo `.zip` sin necesidad de descomprimirlo, puesto que `panda
 - Descomprime, de ser necesario, el archivo descargado para obtener la carpeta que contiene el archivo `listings.csv`.
 - Sigue las instrucciones para la carga del archivo dentro de la sección "Ejecución del Notebook" dentro del presente README.
   
-Importante: Realice un mapeo de columnas y ajuste las funciones de limpieza (como initial_data_cleaning) y feature engineering en el notebook para atender los cambios en la estructura de la fuente.
+**Importante:** Realice un mapeo de columnas y ajuste las funciones de limpieza (como initial_data_cleaning) y feature engineering en el notebook para atender los cambios en la estructura de la fuente.
 Recuerde ajustar la ruta del archivo.
 
 ## Citaciones
