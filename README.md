@@ -9,7 +9,7 @@ Airbnb hosts often lack data-driven guidance on what actually drives listing suc
 ## Key Results
 
 - **Selected Model:** LightGBM with hyperparameter optimization and training set normalization.
-- **Discriminative Capacity (ROC-AUC):** 0.90 — excellent ability to differentiate between high- and low-demand listings.
+- **Discriminative Capacity (ROC-AUC):** 0.90, excellent ability to differentiate between high- and low-demand listings.
 - **Capture Efficiency (Recall):** 86%, successfully identifying the majority of successful market opportunities.
 - **Precision vs. Random Baseline:** 52%, achieving a Lift of 2.3x over the market base probability.
 - **Main Finding:** Operational management and perceived quality have greater predictive impact than geographic location and property infrastructure in the Buenos Aires Airbnb market.
