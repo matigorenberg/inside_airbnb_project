@@ -1,5 +1,7 @@
 # High-Demand Airbnb Listing Identification in Buenos Aires using Classification Models
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://inside-airbnb-project.streamlit.app/)
+
 This repository contains the code and resources for the Final Integrative Project of the Postgraduate Diploma in Data Science and Advanced Analytics (UTN). The goal is to classify the success potential of Airbnb listings in Buenos Aires (CABA) using Machine Learning techniques, following the [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) methodology.
 
 The project is delivered in two complementary formats: a Jupyter Notebook covering the full research and modelling lifecycle, and a Streamlit web application that allows users to interact with the trained model and obtain predictions with SHAP-based explanations.
