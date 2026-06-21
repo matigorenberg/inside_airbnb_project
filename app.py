@@ -1,5 +1,5 @@
 """
-app.py — Streamlit app for predicting Airbnb listing success in CABA, Argentina.
+app.py: Streamlit app for predicting Airbnb listing success in CABA, Argentina.
 
 Run with:  streamlit run app.py
 
@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 from utils.features import haversine_distance, QuantileThresholdCapper  # noqa: F401
-# QuantileThresholdCapper must be imported so joblib can deserialize the pipeline —
+# QuantileThresholdCapper must be imported so joblib can deserialize the pipeline:
 # it's a custom class that joblib needs to find in scope when loading pipeline.pkl.
 
 
@@ -106,7 +106,7 @@ FEATURE_LABELS = {
 
 
 # ---------------------------------------------------------------------------
-# Artifact loading (cached — runs once per server session, not per user action)
+# Artifact loading (cached, runs once per server session, not per user action)
 # ---------------------------------------------------------------------------
 
 @st.cache_resource
@@ -117,7 +117,7 @@ def load_artifacts():
     Why @st.cache_resource?
     This decorator caches heavy objects (models, explainers) across all users
     and browser refreshes. Without it, the pipeline would reload on every
-    widget interaction — making the app unusably slow.
+    widget interaction, making the app unusably slow.
     """
     pipeline = joblib.load("model/pipeline.pkl")
     with open("model/config.json") as f:
@@ -126,7 +126,7 @@ def load_artifacts():
     # Build the SHAP explainer once and cache it.
     # TreeExplainer is tailored for tree-based models (LightGBM, XGBoost).
     # It computes exact Shapley values in O(TLD) time, where T=trees, L=leaves,
-    # D=depth — much faster than the model-agnostic KernelExplainer.
+    # D=depth, much faster than the model-agnostic KernelExplainer.
     clf = pipeline.named_steps["clf"]
     explainer = shap.TreeExplainer(clf)
 
@@ -195,7 +195,7 @@ def build_input_df(inputs: dict) -> pd.DataFrame:
         # is_missing_reviews is always 0 in the app: users must provide review
         # scores, so there is no missing data to flag. The flag exists in the
         # model because ~20% of raw Airbnb listings have no reviews_per_month
-        # value — a data-quality issue in the source, not an app concept.
+        # value, a data-quality issue in the source, not an app concept.
         "is_missing_reviews":          0,
         "is_missing_response_data":    is_missing_response,
         "is_missing_acceptance_data":  is_missing_acceptance,
@@ -273,7 +273,7 @@ def get_shap_chart(pipeline, explainer, config, X_df: pd.DataFrame):
 
 def main():
     st.set_page_config(
-        page_title="Airbnb Success Predictor — CABA",
+        page_title="Airbnb Success Predictor: CABA",
         page_icon="🏠",
         layout="wide",
     )
@@ -283,7 +283,7 @@ def main():
     property_types    = config["property_types"]
 
     # -----------------------------------------------------------------------
-    # Sidebar — inputs
+    # Sidebar: inputs
     # -----------------------------------------------------------------------
     st.sidebar.title("Property Details")
     st.sidebar.caption(
@@ -386,13 +386,13 @@ def main():
     predict_clicked = st.sidebar.button("🔍 Predict", use_container_width=True, type="primary")
 
     # -----------------------------------------------------------------------
-    # Main area — header
+    # Main area: header
     # -----------------------------------------------------------------------
     st.title("🏠 Airbnb Listing Success Predictor")
     st.markdown(
         """
         This tool predicts whether an Airbnb listing in **Buenos Aires (CABA)**
-        will rank in the **top 25% by reviews per month** — a proven proxy for
+        will rank in the **top 25% by reviews per month**, a proven proxy for
         booking demand.
 
         Enter your listing's current details in the sidebar to get a **success
@@ -430,13 +430,13 @@ def main():
         with col_verdict:
             if is_success:
                 st.success(
-                    "**HIGH DEMAND** — This listing is predicted to be among the "
+                    "**HIGH DEMAND**: This listing is predicted to be among the "
                     "top-performing properties in CABA by booking activity.",
                     icon="✅",
                 )
             else:
                 st.warning(
-                    "**STANDARD** — This listing is predicted to be below the "
+                    "**STANDARD**: This listing is predicted to be below the "
                     "high-demand threshold. See the factors below for guidance on "
                     "where to focus.",
                     icon="⚠️",
@@ -444,7 +444,7 @@ def main():
 
         st.caption(
             f"Decision threshold: **{optimal_threshold:.2f}** "
-            f"(F1-optimised on the holdout set — not the arbitrary 0.5 default)."
+            f"(F1-optimised on the holdout set, not the arbitrary 0.5 default)."
         )
 
         st.divider()
